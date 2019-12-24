@@ -1,7 +1,7 @@
 // Main logic for the angular video chat app
 
 //imports declerations for Easyrtc
-/// <reference path="../../../web-rtc/node_modules/easyrtc/typescript_support/d.ts.files/client/easyrtc.d.ts" />>
+/// <reference path="../../../webrtc-videoChat/node_modules/easyrtc/typescript_support/d.ts.files/client/easyrtc.d.ts" />>
 import {Component, ChangeDetectorRef} from '@angular/core';
 
 @Component({
