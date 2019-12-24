@@ -26,7 +26,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [ // adds neceserry scripts for using  socket.io and easyrtc globbaly in the app
+              "./socket.io.js",
+              "./easyrtc.js"
+            ]
           },
           "configurations": {
             "production": {
