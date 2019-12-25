@@ -1,27 +1,46 @@
 # WebrtcVideoChat
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+**WebRtc Video chat application.**
 
-## Development server
+Using [EasyRtc](https://github.com/priologic/easyrtc) which is an  API for webRtc by priologic.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+***Main Features:***
+-
+*Two ways video chat*.
+*Users can connect/disconnect* from a call by pressing a button
+*Online application* -  Users no need to install anything, just use link for the firebase app.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+***Usage:***
+---
+**Regular Use:**
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+    https://videochatitamargs.firebaseapp.com
 
-## Running unit tests
+Just enter the online [firebase app](https://videochatitamargs.firebaseapp.com/)  and wait for your doctor to connect.
+Users can also use the app on localHost (More advanced, see below)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+ **For developers:**
+ ---
+**Run app on localhost:**
+`ng serve` 
 
-## Running end-to-end tests
+**After ng serve app will be available at:**
+  
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    http://localhost:4200
 
-## Further help
+ 
+ **Online app at:** 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+     https://videochatitamargs.firebaseapp.com
+
+**Online server at heroku:**
+
+    https://vast-bastion-49340.herokuapp.com/
+---
+
+**Note:** the Server is 'just' handling connections.
+the actual data transfer is peer to peer
+Take a look at [my server repo](https://github.com/itamargs/server_easyRtc)
