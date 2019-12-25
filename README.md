@@ -1,3 +1,4 @@
+
 # WebrtcVideoChat
 
 **WebRtc Video chat application.**
@@ -9,7 +10,7 @@ Using [EasyRtc](https://github.com/priologic/easyrtc) which is an  API for webRt
 *Two ways video chat*.
 *Users can connect/disconnect* from a call by pressing a button
 *Online application* -  Users no need to install anything, just use link for the firebase app.
-
+Works on chrome for desktop or android (More browsers ro come)
 
 ***Usage:***
 ---
