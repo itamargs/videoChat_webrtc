@@ -5,13 +5,13 @@
 import {Component, ChangeDetectorRef} from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: 'app.component.html'
+  selector: 'app-root', // the app-root tag in index.html will rout to here
+  templateUrl: 'app.component.html' //this func return the url to be loaded
 })
 
 export class AppComponent {
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(private cdr: ChangeDetectorRef) { // wii be set to MANUAL change detection (by calling cdr.detectChanges())
   }
 
   myId: string = '';
@@ -24,6 +24,7 @@ export class AppComponent {
   }
 
   // calling the selected peer after pressing on the call button
+  // perform call needs 4 args:  (user ID, sucess callback, error callback, accepted/not accepted callback)
   performCall(clientEasyrtcId: string): void {
     let successCB = function(a: string, b: string): void {
     };
@@ -38,7 +39,10 @@ export class AppComponent {
     };
   }
 
+  //  builds a button for each peer known by the server
+  //  Each button has a callback that generates a call to a particular peer
   convertListToButtons(roomName: string, data: Easyrtc_PerRoomData, isPrimary: boolean): void {
+    console.log("new peer detected -- clean list and init buttons");
     this.clearConnectList();
     for (let easyrtcid in data) {
       this.connectedClientsList.push(easyrtc.idToName(easyrtcid));
@@ -70,11 +74,21 @@ export class AppComponent {
     // connecting to the node.js server via secure connection (here on heroku)
     easyrtc.setSocketUrl('https://vast-bastion-49340.herokuapp.com', {secure: true});
     // easyrtc.setSocketUrl('https://localhost:5000', {rejectUnauthorized: false});
-    easyrtc.setRoomOccupantListener(convertListToButtonShim);
+    console.log("init callback for new peers");
+    easyrtc.setRoomOccupantListener(convertListToButtonShim); // init callback for listening to new peers connected
+
+    // app name: name of the application.
+    // monitorVideoId: id of the video object used for monitoring the local stream.
+    // videoIds: array of video objectId
+    // onReady: callback on sucess
+    // onFailure on failure
     easyrtc.easyApp('easyrtc.audioVideoSimple', 'videoSelf', ['videoCaller'], this.loginSuccess.bind(this), this.loginFailure.bind(this));
   }
 
+
+  // call back initiated after angular has completed init fo a components view (initiated only once)
   ngAfterViewInit() {
+    console.log("connects first time");
     this.connect();
   }
 
